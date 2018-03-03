@@ -3,11 +3,10 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('teacherView', {
-   title: 'Teacher',
-   message: 'Teacher'
+  res.render('about', {
+   title: 'About FrankBoard',
+   message: 'About'
  });
 });
-
 
 module.exports = router;
