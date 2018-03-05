@@ -11,7 +11,6 @@ utils.generateDB();
 var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
-var teacher = require('./routes/teacher');
 var about = require('./routes/about');
 
 var app = express();
@@ -30,7 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/teacher', teacher);
 app.use('/admin', admin);
 app.use('/about', about);
 
