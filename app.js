@@ -9,8 +9,9 @@ var utils = require("./utils");
 utils.generateDB();
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-var admin = require('./routes/admin');
+var users = require('./routes/students/users');
+var admin = require('./routes/administrator/admin');
+var studentList = require('./routes/administrator/studentList');
 var about = require('./routes/about');
 
 var app = express();
@@ -31,6 +32,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/admin', admin);
 app.use('/about', about);
+app.use('/studentList', studentList);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
