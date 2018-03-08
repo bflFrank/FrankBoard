@@ -16,10 +16,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// router.get('/addStudent' function(req, res, next){
+// router.get('/addStudent', function(req, res, next){
 //   res.render()
 // });
-//
+
 // router.post()
 
 module.exports = router;
