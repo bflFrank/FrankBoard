@@ -5,9 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('adminView', {
    title: 'Admin',
-   message: 'Admin'
+   message: 'Administrator'
  });
 });
-
 
 module.exports = router;

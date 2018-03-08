@@ -2,8 +2,18 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
-      h1= message
-      p This is the #{message} page!
+  header
+    nav
+      ul
+        li
+          a(href="/") Log out
+        li
+          a(href="/admin") Back
+    .container
+      .col-xs-12
+        center
+          h1= message
+          p This is the #{message} page!
