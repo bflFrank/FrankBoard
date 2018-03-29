@@ -11,7 +11,9 @@ html
         li
           a(href="/") Log out
         li
-          a(href="/admin") Back
+          a(href="/admin") To Home Page
+        li
+            a(href="/studentList/addStudent") Add Student
     .container
       .col-xs-12
         center
@@ -20,7 +22,6 @@ html
       table.table.table-bordered
         thead
           tr
-            th #
             th First Name
             th Last Name
             th Username
@@ -29,7 +30,6 @@ html
         tbody
         - each item in rows
           tr
-            td= item.idUser
             td= item.first
             td= item.last
             td= item.username

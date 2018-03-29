@@ -9,17 +9,18 @@ router.get('/', function(req, res, next) {
   db.all('SELECT * FROM users WHERE userLevel = 2', function(err, rows){
     if(err) throw err;
 
-    res.render('studentListView', {
+    res.render('./adminViews/studentListView', {
       title: 'Student List',
       rows: rows
     });
   });
 });
 
-// router.get('/addStudent', function(req, res, next){
-//   res.render()
-// });
-
-// router.post()
+router.get('/addStudent', function(req, res, send){
+  res.render('./adminViews/addStudent', {
+    title: 'Add Student',
+    message: 'Add Student'
+  });
+});
 
 module.exports = router;

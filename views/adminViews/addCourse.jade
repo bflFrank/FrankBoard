@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+        nav
+        ul
+            li
+                a(href="/") Log out
+            li
+                a(href="/courseList") Course List
+        .container
+        .col-xs-12
+            center
+                h1= message
+                // ADD USER
+                form#addUser(method= 'post')
+                    fieldset
+                        input#inputSubject(name= 'courseSubj', type='text', placeholder='Subject', required)
+                        br
+                        input#inputCode(name= 'courseCode', type='text', placeholder='Code', required)
+                        br
+                        input#inputName(name= 'courseName', type='text', placeholder='Name', required)
+                        br
+                        input#inputDays(name= 'courseDays', type='text', placeholder='Days', required)
+                        br
+                        input#inputRoom(name= 'courseRoom', type='text', placeholder='Room', required)
+                        br
+                        input#inputCRN(name= 'courseCRN', type='text', placeholder='CRN', required)
+                        br
+                        button#btnAddCourse Add Course
+                // /ADD USER

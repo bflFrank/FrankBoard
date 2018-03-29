@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+  header
+    nav
+      ul
+        li
+          a(href="/") Log out
+        li
+          a(href="/admin") To Home Page
+        li
+            a(href="/courseList/addCourse") Add Course
+    .container
+      .col-xs-12
+        center
+          h1= title
+
+      table.table.table-bordered
+        thead
+          tr
+            th SUBJECT
+            th CODE
+            th NAME
+            th DAYS
+            th ROOM
+            th CRN
+            th Action
+        tbody
+        - each item in rows
+          tr
+            td= item.subject
+            td= item.code
+            td= item.name
+            td= item.days
+            td= item.room
+            td= item.crn
+            td 
+              form(method="post" action="/courseList/removeCourse")
+                input(type="hidden" name="idCourse" value="#{item.idCourse}")
+                button.btn.btn-danger Delete Class

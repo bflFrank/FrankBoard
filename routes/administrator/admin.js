@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('adminView', {
+  res.render('./adminViews/adminView', {
    title: 'Admin',
    message: 'Administrator'
  });

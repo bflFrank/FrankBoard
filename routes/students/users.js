@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
       return;
     }
 
-    res.render('studentView', {
+    res.render('./studentViews/studentView', {
       title: 'Student',
       message: 'Student',
       student: student
