@@ -1,21 +1,7 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    header
-      nav
-        ul
-          li
-            a(href="/") Log out
-          li
-            a(href="/about") About
-          li
-            a(href="/studentList") Student List
-          li
-            a(href="/courseList") Course List
+extends template
+block vars
+    - var page = "index"
+block content
     .container
       .col-xs-12
         center

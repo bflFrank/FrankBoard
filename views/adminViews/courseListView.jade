@@ -1,24 +1,12 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-  header
-    nav
-      ul
-        li
-          a(href="/") Log out
-        li
-          a(href="/admin") To Home Page
-        li
-            a(href="/courseList/addCourse") Add Course
+extends template
+block vars
+    - var page = "courseList"
+block content
     .container
       .col-xs-12
         center
           h1= title
-
+          a.btn.btn-success.pull-right(href="/courseList/addCourse") Add Course
       table.table.table-bordered
         thead
           tr

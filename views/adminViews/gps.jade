@@ -1,0 +1,25 @@
+extends ../template.jade
+block vars
+    - var report = "gps"
+block content
+    .container
+        .row
+            .col-xs-12.col-md-4.col-md-offset-4
+                h2 Nonpay GPS Report
+                form#gps(method="POST" target="_blank")
+                    .form-group
+                        label(for="from") From Date
+                        input.form-control(type="text" name="from")
+                    .form-group
+                        label(for="to") To Date
+                        input.form-control(type="text" name="to")
+                    .form-group
+                        label(for="area") Area
+                        select.form-control(name="area")
+                            option(value="all") All Areas
+                            each area in areas
+                                option(value="#{area}")= area
+                    button.btn.btn-default.form-control(value="submit") Submit
+block js
+    script(src="/js/jquery-ui.js")
+    script(src="/js/admin/reports/gps.js")
