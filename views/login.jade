@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        link(rel="stylesheet", href="/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/interface.css")
+        title FrankBoard
+    body
+        .container
+            .row
+                .col-xs-12.text-center
+                    h1 FrankBoard
+            .row
+                .col-xs-12.col-sm-4.col-sm-offset-4
+                    form(method="POST")
+                        .form-group
+                            label(for="username") username
+                            input.form-control(type="text" name="username")
+                        .form-group
+                            label(for="password") password
+                            input.form-control(type="password" name="password")
+                        button.form-control(value="submit") Log In
+            if error
+                .row
+                    .col-xs-12.col-sm-4.col-sm-offset-4
+                        p Error! Username or password is incorrect!
+        script(src="/js/jquery-1.11.2.min.js")
+        script(src="/js/bootstrap.min.js")

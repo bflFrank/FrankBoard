@@ -19,14 +19,14 @@ html(style="height: 85%;")
                 .navbar-collapse.collapse#navbar
                     ul.nav.navbar-nav
                         li(class=page == "index" ? "active" : "")
-                            a(href="/") Home
+                            a(href="/admin") Home
                         li(class=page == "studentList" ? "active" : "")
                             a(href="/studentList") Student List
                         li(class=page == "courseList" ? "active" : "")
                             a(href="/courseList") Course List
                     ul.nav.navbar-nav.navbar-right
                         li
-                            a(href="/logout") Sign out
+                            a(href="/") Sign out
         block content
         script(src="/js/jquery-1.11.2.min.js")
         script(src="/js/bootstrap.min.js")
