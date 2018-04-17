@@ -23,4 +23,7 @@ block content
             td= item.last
             td= item.username
             td= item.studentID
-            td Remove
+            td
+              form(method="post" action="/studentList/removeStudent")
+                input(type="hidden" name="idUser" value="#{item.idUser}")
+                button.btn.btn-danger Delete Student

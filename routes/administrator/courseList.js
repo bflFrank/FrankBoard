@@ -33,7 +33,7 @@ router.post('/addCourse', function(req, res, send) {
 });
 
 router.post('/removeCourse', function(req, res, send) {
-    var buttonPush = req.body.idCourse
+    var buttonPush = req.body.idCourse;
     db.run('DELETE FROM courses WHERE idCourse = ?', buttonPush,
     function(err){
         if(err){
