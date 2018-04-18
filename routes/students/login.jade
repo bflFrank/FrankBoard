@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+        link(rel="stylesheet", href="/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/interface.css")
+        title gps usa
+    body
+        .container
+            .row
+                .col-xs-12.text-center
+                    h1 tech1 gps #{region}
+            .row
+                .col-xs-12.col-sm-4.col-sm-offset-4
+                    form(method="POST")
+                        .form-group
+                            label(for="username") username
+                            input.form-control(type="text" name="username")
+                        .form-group
+                            label(for="password") password
+                            input.form-control(type="password" name="password")
+                        button.form-control(value="submit") Log In
+                .col-xs-12.col-sm-4.col-sm-offset-4
+                    h3 all tech1 gps locations
+                    ul
+                        li
+                            a(href="https://tech1gps.com") houston
+                        li
+                            a(href="https://ca.tech1gps.com") california
+                        li
+                            a(href="https://heartland.tech1gps.com") heartland
+                        li
+                            a(href="https://suddenlink.tech1gps.com") suddenlink
+                .col-xs-12.col-sm-4.col-sm-offset-4
+                    h4 Need the app?
+                    ul
+                        li
+                            a(href="/TechOneGPS-#{region}.apk") android
+                        li
+                            p ios coming soon!
+        script(src="/js/jquery-1.11.2.min.js")
+        script(src="/js/bootstrap.min.js")

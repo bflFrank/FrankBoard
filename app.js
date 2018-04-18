@@ -1,9 +1,12 @@
+var cthulu = '🐙';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require("express-session");
+var FileStore = require("session-file-store")(session);
 var db = require('./db/db');
 var utils = require("./utils");
 utils.generateDB();
@@ -28,6 +31,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    store: new FileStore({ttl: "36000", retries: 2, path: './sessions/'}),
+    secret: "Manny is da Manny",
+    resave: true,
+    saveUninitialized: false
+}));
+
 
 app.use('/', index);
 app.use('/users', users);

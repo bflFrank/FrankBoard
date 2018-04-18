@@ -2,7 +2,12 @@ var express = require('express');
 var router = express.Router();
 var db = require('../../db/db')
 
-
+router.all("*", function(req, res, next){
+    if(req.session.userLevel == 1)
+        next();
+    else
+        res.redirect("/");
+});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -19,8 +24,8 @@ router.get('/', function (req, res, next) {
 router.post('/addCourse', function(req, res, send) {
     var formInfo = [req.body];
     var course = formInfo[0];
-    db.run(`INSERT INTO courses(subject, code, name, days, room, crn) VALUES(?, ?, ?, ?, ?, ?)`, 
-    [course.courseSubj, course.courseCode, course.courseName, course.courseDays, course.courseRoom, course.courseCRN], 
+    db.run(`INSERT INTO courses(subject, code, name, days, room, crn) VALUES(?, ?, ?, ?, ?, ?)`,
+    [course.courseSubj, course.courseCode, course.courseName, course.courseDays, course.courseRoom, course.courseCRN],
     function (err) {
         if (err) {
             return console.log(err);

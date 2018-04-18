@@ -10,7 +10,12 @@ function hashPassword(password, salt){
 }
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login');
+    if(req.session.userLevel == 1)
+        res.redirect("/admin");
+    else if(req.session.userLevel == 2)
+        res.redirect("/users");
+    else
+        res.render('login');
 });
 router.post("/", function(req, res){
     var salt, hash;
@@ -26,16 +31,27 @@ router.post("/", function(req, res){
             hash = row.password;
             password = hashPassword(password, salt);
             if(hash == password){
-                if(row.userLevel == 1)
+                if(row.userLevel == 1){
+                    req.session.userLevel = 1;
+                    req.session.idUser = row.idUser;
                     res.redirect("/admin");
-                else if(row.userLevel == 2)
+                }
+                else if(row.userLevel == 2){
+                    req.session.userLevel = 2;
+                    req.session.idUser = row.idUser;
                     res.redirect("/users");
+                }
             }
             else{
                 res.locals.error = "error";
                 res.render("login");
             }
         }
+    });
+});
+router.get("/logout", function(req, res, next){
+    req.session.destroy(function(err){
+        res.redirect("/");
     });
 });
 module.exports = router;
