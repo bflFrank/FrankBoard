@@ -10,11 +10,15 @@ router.all("*", function(req, res, next){
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
+    db.get("select first, last, studentID from users where idUser = ?", req.session.idUser, function(err, row){
 
-    res.render('./studentViews/studentView', {
-      title: 'Student',
-      message: 'Student',
+        res.locals.name = row.first + " " + row.last;
+        res.locals.id = row.studentID;
+
+        res.locals.info = row;
+        res.render('./studentViews/studentView');
+
     });
 
 });

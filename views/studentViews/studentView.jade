@@ -1,17 +1,11 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-  header
-    nav
-      ul
-        li
-          a(href="/") Log out
+extends template
+block vars
+    - var page = "index"
+block content
     .container
-      .col-xs-12
-        center
-          h1= message
-          p This is the #{message} page!
+        .rows
+            .col-xs-12.text-center
+                h1  Hello 
+                    each row in info
+                        p  #{row.first} #{row.last}
+                        p ID:  #{row.studentID}

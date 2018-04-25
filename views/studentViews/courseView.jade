@@ -1,0 +1,22 @@
+extends template
+block vars
+    - var page = "courseView"
+block content
+    .container
+        .rows
+          .col-xs-12 
+                h2.text-center My Course
+                table.table.table-bordered.table-condensed
+                    thead
+                        tr
+                            th Subject
+                            th CRN
+                            th Grades
+                    tbody
+                        each item in rows
+                            tr
+                                td
+                                td
+                                td
+                
+             

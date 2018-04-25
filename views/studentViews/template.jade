@@ -1,0 +1,35 @@
+block vars
+doctype html
+html(style="height: 85%;")
+    head
+        link(rel="stylesheet" href="/css/bootstrap.min.css")
+        link(rel="stylesheet" href="/css/dataTables.bootstrap.css")
+        link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+        link(rel="stylesheet" href="/stylesheets/style.css")
+        title FrankBoard
+    body(style="height: 100%;")
+        .navbar.navbar-default.navbar-fixed-top
+            .container
+                .navbar-header
+                    button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                .navbar-collapse.collapse#navbar
+                    ul.nav.navbar-nav
+                        li(class=page == "index" ? "active" : "")
+                            a(href="/users") Home
+                        li(class=page == "studentList" ? "active" : "")
+                            a(href="/courseView") My Courses 
+                        li(class=page == "courseView" ? "active" : "")
+                            a(href="/courseView" ? "active" : "")
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href="/logout") Sign out
+        block content
+        script(src="/js/jquery-1.11.2.min.js")
+        script(src="/js/bootstrap.min.js")
+        script(src="/socket.io/socket.io.js")
+        script(src="/js/techone.js")
+        block js
