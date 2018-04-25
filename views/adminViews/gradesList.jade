@@ -1,0 +1,28 @@
+extends template
+block vars
+    - var page = "grades"
+block content
+    .container
+        .row
+            .col-xs-12
+                h1.text-center Grades
+                a.pull-right.btn.btn-success(href="/gradeList/addGrade") Add Grade
+                table.table.table-bordered.table-condensed
+                    thead
+                        tr
+                            th Student
+                            th Course
+                            th Description
+                            th Grade
+                            th Delete Grade
+                    tbody
+                        each row in info
+                            tr
+                                td= row.name
+                                td= row.class
+                                td= row.description
+                                td= row.grade
+                                td
+                                    form(method="post" action="/gradeList/delete")
+                                        input(type="hidden" name="idGrade" value="#{row.idGrade}")
+                                        button.btn-danger(value="submit") Delete Grade
