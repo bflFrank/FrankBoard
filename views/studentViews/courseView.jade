@@ -3,20 +3,19 @@ block vars
     - var page = "courseView"
 block content
     .container
-        .rows
-          .col-xs-12 
-                h2.text-center My Course
+        .row
+            .col-xs-12 
+                h2.text-center My Courses
+                p.text-center Current GPA: #{gpa}
                 table.table.table-bordered.table-condensed
                     thead
                         tr
                             th Subject
-                            th CRN
+                            th Description
                             th Grades
                     tbody
-                        each item in rows
+                        each row in rows
                             tr
-                                td
-                                td
-                                td
-                
-             
+                                td= row.subject
+                                td= row.description
+                                td= row.grade

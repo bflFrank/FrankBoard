@@ -6,27 +6,22 @@ var db = require('../../db/db')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    db.all('SELECT * FROM courses', function (err, rows) {
+    db.all('SELECT subject, grade, grades.name as description FROM courses left join grades on courses.idCourse = grades.idCourse where grades.idUser = ?', req.session.idUser, function (err, rows) {
         if (err) throw err;
-        res.render('./studentViews/courseView', {
-            title: 'My Courses',
-            rows: rows
+        res.locals.rows = rows;
+        db.get("SELECT sum(grade) as total, count(grade) as amount FROM courses left join grades on courses.idCourse = grades.idCourse where grades.idUser = ?", req.session.idUser, function(err, row){
+            if(row.total / row.amount >= 90)
+                res.locals.gpa = 4;
+            else if(row.total / row.amount >= 80)
+                res.locals.gpa = 3;
+            else if(row.total / row.amount >= 70)
+                res.locals.gpa = 2;
+            else if(row.total / row.amount >= 60)
+                res.locals.gpa = 1;
+            else res.locals.gpa = 0;
+            res.render('./studentViews/courseView');
         });
     });
-});
-
-router.get('/courseView', function(req, res, next) {
-    db.all("select subject, room, code, crn, first, last from courses left join registration on courses.idCourse = registration.idCourse left join users on registration.idUser = users.idUser where idUser = ?", req.session.idUser,
-     function (err, rows) {
-
-         res.local.courses = rows;
-        if (err) {
-            return console.log(err);
-        }
-
-        res.render('/courseView');
-    });
-
 });
 
 module.exports = router;
