@@ -1,0 +1,25 @@
+extends template
+block vars
+    - var page = "grades"
+block content
+    .container
+        .row
+            .col-xs-12.text-center
+                h1 Add Grade
+                form(method='post')
+                    fieldset
+                        select(name="idUser" required)
+                            option(value="") Select a User
+                            each row in users
+                                option(value="#{row.idUser}")= row.first + " " + row.last
+                        br
+                        select(name="idCourse" required)
+                            option(value="") Select a Course
+                            each row in courses
+                                option(value="#{row.idCourse}")= row.name
+                        br
+                        input(name='name', type='text', placeholder='Name', required)
+                        br
+                        input(name='grade', type='number', placeholder='#/100', required, step="0.01")
+                        br
+                        button.btn.btn-info Add Course

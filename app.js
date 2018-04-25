@@ -15,6 +15,7 @@ var index = require('./routes/index');
 var users = require('./routes/students/users');
 var admin = require('./routes/administrator/admin');
 var studentList = require('./routes/administrator/studentList');
+var grades = require("./routes/administrator/grades");
 var about = require('./routes/about');
 var courseList = require('./routes/administrator/courseList');
 var courseView = require('./routes/students/courseView');
@@ -43,6 +44,7 @@ app.use(session({
 app.use('/', index);
 app.use('/users', users);
 app.use('/admin', admin);
+app.use('/gradeList', grades);
 app.use('/about', about);
 app.use('/studentList', studentList);
 app.use('/courseList', courseList);

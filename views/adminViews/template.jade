@@ -6,7 +6,7 @@ html(style="height: 85%;")
         link(rel="stylesheet" href="/css/dataTables.bootstrap.css")
         link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
         link(rel="stylesheet" href="/stylesheets/style.css")
-        title tech1 gps
+        title FrankBoard
     body(style="height: 100%;")
         .navbar.navbar-default.navbar-fixed-top
             .container
@@ -24,6 +24,8 @@ html(style="height: 85%;")
                             a(href="/studentList") Student List
                         li(class=page == "courseList" ? "active" : "")
                             a(href="/courseList") Course List
+                        li(class=page == "grades" ? "active" : "")
+                            a(href="/gradeList") Grade List
                     ul.nav.navbar-nav.navbar-right
                         li
                             a(href="/logout") Sign out
